@@ -8,9 +8,7 @@ There are several things different from the original paper
 - Model (original: RED30 [3], this repository: SRResNet [4] or UNet [5])
 
 Updates:
-- [Sep. 21, 2018] Random-valued impulse noise model and L0 loss were added
-- [Aug. 25, 2018] UNet model can be used in training
-- [Aug. 25, 2018] Add trained weights
+- [Apr. 13, 2020] Made it possible to learn with your own pair of noise data sets.
 
 ## Dependencies
 - Keras >= 2.1.2, TensorFlow, NumPy, OpenCV
@@ -34,6 +32,10 @@ Any dataset can be used in training and validation instead of the above dataset.
 ### Train Model
 Please see `python3 train.py -h` for optional arguments.
 
+#### Train with your own pair of noise data sets.
+```bash
+python3 train_noiseimg.py --image_dir <trainA_path> --image_dir_2 <trainB_path> --test_dir <valA_path> --test_dir_2 <valB_path> --image_size 128 --batch_size 8 --lr 0.001 --output_path <output_path> --source_noise_model clean --target_noise_model clean --val_noise_model clean 
+```
 
 #### Train with Gaussian noise
 ```bash
