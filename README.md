@@ -1,6 +1,8 @@
-# Noise2Noise
+# Noise2Noise for your own noise data
 This is fork of [yu4u/noise2noise](https://github.com/yu4u/noise2noise) to be able to handle your own noise data.
+
 #### Train with your own pair of noise data sets.
+Prepare different data pairs for the same scene with different noises; about 500 scenes are good. Each noise data are stored in a different directory. (trainA, trainB)
 ```bash
 python3 train_noiseimg.py --image_dir [trainA_path] --image_dir_2 [trainB_path] --test_dir [valA_path] --test_dir_2 [valB_path] --image_size 128 --batch_size 8 --lr 0.001 --output_path [output_path] --source_noise_model clean --target_noise_model clean --val_noise_model clean 
 ```
@@ -10,7 +12,7 @@ python3 train_noiseimg.py --image_dir [trainA_path] --image_dir_2 [trainB_path] 
 python3 test_model.py --weight_file [trained_model_path] --image_dir [test_path] --test_noise_model clean
 ```
 
-
+# Noise2Noise
 This is an unofficial and partial Keras implementation of "Noise2Noise: Learning Image Restoration without Clean Data" [1].
 
 There are several things different from the original paper
