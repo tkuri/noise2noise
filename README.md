@@ -1,4 +1,15 @@
 # Noise2Noise
+This is fork of [yu4u/noise2noise](https://github.com/yu4u/noise2noise) to be able to handle your own noise data.
+#### Train with your own pair of noise data sets.
+```bash
+python3 train_noiseimg.py --image_dir [trainA_path] --image_dir_2 [trainB_path] --test_dir [valA_path] --test_dir_2 [valB_path] --image_size 128 --batch_size 8 --lr 0.001 --output_path [output_path] --source_noise_model clean --target_noise_model clean --val_noise_model clean 
+```
+#### Check denoising result with your own noise data sets. 
+
+```bash
+python3 test_model.py --weight_file [trained_model_path] --image_dir [test_path] --test_noise_model clean
+```
+
 
 This is an unofficial and partial Keras implementation of "Noise2Noise: Learning Image Restoration without Clean Data" [1].
 
@@ -34,7 +45,7 @@ Please see `python3 train.py -h` for optional arguments.
 
 #### Train with your own pair of noise data sets.
 ```bash
-python3 train_noiseimg.py --image_dir <trainA_path> --image_dir_2 <trainB_path> --test_dir <valA_path> --test_dir_2 <valB_path> --image_size 128 --batch_size 8 --lr 0.001 --output_path <output_path> --source_noise_model clean --target_noise_model clean --val_noise_model clean 
+python3 train_noiseimg.py --image_dir [trainA_path] --image_dir_2 [trainB_path] --test_dir [valA_path] --test_dir_2 [valB_path] --image_size 128 --batch_size 8 --lr 0.001 --output_path [output_path] --source_noise_model clean --target_noise_model clean --val_noise_model clean 
 ```
 
 #### Train with Gaussian noise
@@ -133,7 +144,7 @@ python3 test_model.py --weight_file [trained_model_path] --image_dir dataset/Set
 #### Check denoising result with your own noise data sets. 
 
 ```bash
-python3 test_model.py --weight_file [trained_model_path] --image_dir dataset/Set14 --test_noise_model clean
+python3 test_model.py --weight_file [trained_model_path] --image_dir [test_path] --test_noise_model clean
 ```
 
 The detailed options are:
