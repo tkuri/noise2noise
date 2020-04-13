@@ -40,21 +40,28 @@ def main():
         output_dir = Path(args.output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
 
+    print(image_dir)
     image_paths = list(Path(image_dir).glob("*.*"))
+#     print(image_paths)
 
     for image_path in image_paths:
+        print(image_path)
         image = cv2.imread(str(image_path))
         h, w, _ = image.shape
         image = image[:(h // 16) * 16, :(w // 16) * 16]  # for stride (maximum 16)
         h, w, _ = image.shape
-
-        out_image = np.zeros((h, w * 3, 3), dtype=np.uint8)
-        noise_image = val_noise_model(image)
+        
         pred = model.predict(np.expand_dims(noise_image, 0))
-        denoised_image = get_image(pred[0])
-        out_image[:, :w] = image
-        out_image[:, w:w * 2] = noise_image
-        out_image[:, w * 2:] = denoised_image
+        out_image = get_image(pred[0])
+
+#         out_image = np.zeros((h, w * 3, 3), dtype=np.uint8)
+#         noise_image = val_noise_model(image)
+#         pred = model.predict(np.expand_dims(noise_image, 0))
+#         denoised_image = get_image(pred[0])
+#         out_image[:, :w] = image
+#         out_image[:, w:w * 2] = noise_image
+#         out_image[:, w * 2:] = denoised_image
+
 
         if args.output_dir:
             cv2.imwrite(str(output_dir.joinpath(image_path.name))[:-4] + ".png", out_image)
