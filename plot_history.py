@@ -23,7 +23,8 @@ def main():
     if args.input2:
         input_paths.append(Path(args.input2).joinpath("history.npz"))
 
-    datum = [(np.array(np.load(str(input_path))["history"], ndmin=1)[0], input_path.parent.name)
+    # datum = [(np.array(np.load(str(input_path))["history"], ndmin=1)[0], input_path.parent.name)
+    datum = [(np.array(np.load(str(input_path), allow_pickle=True)["history"], ndmin=1)[0], input_path.parent.name)
              for input_path in input_paths]
     metrics = ["val_loss", "val_PSNR"]
 
