@@ -2,7 +2,7 @@
 This is fork of [yu4u/noise2noise](https://github.com/yu4u/noise2noise) to be able to handle your own noise data.
 
 #### Train with your own pair of noise data sets.
-Prepare different data pairs for the same scene with different noises; about 500 scenes are good. Each noise data are stored in a different directory. (trainA, trainB)
+Prepare different data pairs for the same scene with different noises; about 500 scenes (train:400/val:100) are good. Each noise data are stored in a different directory. (trainA, trainB / valA, valB)
 ```bash
 python3 train_noiseimg.py --image_dir [trainA_path] --image_dir_2 [trainB_path] --test_dir [valA_path] --test_dir_2 [valB_path] --image_size 128 --batch_size 8 --lr 0.001 --output_path [output_path] --source_noise_model clean --target_noise_model clean --val_noise_model clean 
 ```
