@@ -51,7 +51,7 @@ def main():
         image = image[:(h // 16) * 16, :(w // 16) * 16]  # for stride (maximum 16)
         h, w, _ = image.shape
         
-        pred = model.predict(np.expand_dims(noise_image, 0))
+        pred = model.predict(np.expand_dims(image, 0))
         out_image = get_image(pred[0])
 
 #         out_image = np.zeros((h, w * 3, 3), dtype=np.uint8)
