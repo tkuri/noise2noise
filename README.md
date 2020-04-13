@@ -130,6 +130,12 @@ If UNet is used, the result becomes 29.67 (noisy targets) vs. 30.14 (clean targe
 python3 test_model.py --weight_file [trained_model_path] --image_dir dataset/Set14
 ```
 
+#### Check denoising result with your own noise data sets. 
+
+```bash
+python3 test_model.py --weight_file [trained_model_path] --image_dir dataset/Set14 --test_noise_model clean
+```
+
 The detailed options are:
 
 ```bash
