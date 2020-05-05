@@ -3,7 +3,7 @@ import numpy as np
 from pathlib import Path
 import cv2
 from model import get_model
-from noise_model import get_noise_model
+# from noise_model import get_noise_model
 
 
 def get_args():
@@ -15,8 +15,8 @@ def get_args():
                         help="model architecture ('srresnet' or 'unet')")
     parser.add_argument("--weight_file", type=str, required=True,
                         help="trained weight file")
-    parser.add_argument("--test_noise_model", type=str, default="gaussian,25,25",
-                        help="noise model for test images")
+    # parser.add_argument("--test_noise_model", type=str, default="gaussian,25,25",
+    #                     help="noise model for test images")
     parser.add_argument("--output_dir", type=str, default=None,
                         help="if set, save resulting images otherwise show result using imshow")
     args = parser.parse_args()
@@ -32,7 +32,7 @@ def main():
     args = get_args()
     image_dir = args.image_dir
     weight_file = args.weight_file
-    val_noise_model = get_noise_model(args.test_noise_model)
+    # val_noise_model = get_noise_model(args.test_noise_model)
     model = get_model(args.model)
     model.load_weights(weight_file)
 
