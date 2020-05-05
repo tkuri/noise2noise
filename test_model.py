@@ -41,7 +41,8 @@ def main():
         output_dir.mkdir(parents=True, exist_ok=True)
 
     print(image_dir)
-    image_paths = list(Path(image_dir).glob("*.*"))
+#     image_paths = list(Path(image_dir).glob("*.*"))
+    image_paths = list(Path(image_dir).glob("*.png"))
 #     print(image_paths)
 
     for image_path in image_paths:
